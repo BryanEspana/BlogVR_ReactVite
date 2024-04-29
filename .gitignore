@@ -1,0 +1,13 @@
+# Dependencias
+/node_modules
+
+# Archivos de configuración y compilación
+/.env
+/.pnp
+.pnp.js
+/build
+/dist
+
+# Directorios de caché
+/.cache
+/public
