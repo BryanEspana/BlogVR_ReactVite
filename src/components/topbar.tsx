@@ -5,7 +5,7 @@ function TopBar(){
         <div className="Topbar">
             <img src="src/assets/logo.png" className="logo" />
             <div>
-                <a href="/register">Home</a>
+                <button></button>
                 <a href="/login">Login</a>
             </div>
         </div>
