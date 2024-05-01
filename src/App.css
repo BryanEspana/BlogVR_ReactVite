@@ -127,7 +127,7 @@ h1{
 }
 .imgHome{
   width: 100%;
-  height: 660px;
+  height: 500px;
   background-size: cover;
   object-fit: cover;
 }
@@ -137,7 +137,7 @@ h1{
 }
 .TextImg{
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 30%;
   transform: translate(-50%, -50%);
   font-family: monospace;
@@ -150,8 +150,8 @@ h1{
 .Blogs{
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem 8rem;
-  justify-content: space-between;
+  margin: 1rem 5rem;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }
