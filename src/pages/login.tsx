@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
+import SimpleAlert from '../components/alertDialog';
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [alertText, setAlertText] = useState<string>('');
+  const [alertSeverity, setAlertSeverity] = useState<"error" | "info" | "success" | "warning" | undefined>(undefined);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    if(username === 'bryanespana' && password === '12345'){
+    const usernameInput = event.currentTarget.username.value;
+    const passwordInput = event.currentTarget.password.value;
+
+    if (usernameInput === 'bryanespana' && passwordInput === '12345') {
       window.location.href = '/home';
+    } else {
+      setAlertText('Usuario o contraseña incorrectos');
+      setAlertSeverity('error');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+      console.log('Usuario y contraseña incorrectos');
     }
-    // Aquí iría la lógica para manejar el inicio de sesión
-    console.log('Usuario:', username, 'Contraseña:', password);
   };
 
-  const GoBack = (event) => {
+  const goBack = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     window.location.href = '/';
   }
@@ -45,13 +54,15 @@ function Login() {
           />
         </label>
         <div className='displayrow'>
-        <button className='button' onClick={GoBack} style={{width:'100%'}}>
-          Regresar
-        </button>
-        <button type="submit" className='button' style={{width:'100%'}}>
-          Iniciar Sesión
-        </button>
+          <button className='button' onClick={goBack} style={{width:'100%'}}>
+            Regresar
+          </button>
+          <button type="submit" className='button' style={{width:'100%'}}>
+            Iniciar Sesión
+          </button>
         </div>
+        {showAlert && <SimpleAlert text={alertText} severity={alertSeverity} />}
+
       </form>
     </div>
   );

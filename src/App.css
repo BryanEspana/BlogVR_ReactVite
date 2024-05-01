@@ -91,10 +91,21 @@
   margin-top: 20px;
   width: max-content;
 }
+.button:hover{
+  background-color: #1a2d4f;
+}
 .displayrow{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+}
+.BtnToopbar{
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 10px 2rem;
 }
