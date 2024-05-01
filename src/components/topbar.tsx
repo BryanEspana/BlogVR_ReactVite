@@ -6,6 +6,7 @@ function TopBar(){
             <img src="src/assets/logo.png" className="logo" />
             <div>
                 <button className="BtnToopbar">Home</button>
+                <button className="BtnToopbar">About Me</button>
                 <button className="BtnToopbar">Login</button>
             </div>
         </div>
