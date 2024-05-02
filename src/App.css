@@ -160,6 +160,10 @@ h1{
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  cursor: pointer;
+}
+.CardsBlog:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 h2{
   font-weight: 700;
@@ -182,3 +186,63 @@ h2{
   text-overflow: ellipsis;
   width: 100%;
 }
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--color-primary);
+  border-bottom-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+  .EncabezadoBlog{
+    background-color: var(--color-primary);
+    color: white !important;
+    padding: 5rem 0rem
+  
+  }
+  .TextEncabezadoBlog{
+    color: white;
+  }
+  .CuerpoBlog {
+    padding: 1rem 10%; /* Más estrecho en pantallas grandes, ajustar según necesidad */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos */
+  }
+  
+  .imageBlog {
+    width: 100%; /* Hace que la imagen sea responsive */
+    max-width: 600px; /* Máximo tamaño de la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+    margin-bottom: 1rem; /* Espacio entre imagen y texto */
+  }
+  
+  .TextCuerpoBlog {
+    font-size: 1.2rem; /* Tamaño de fuente más adecuado para la lectura */
+    font-weight: 400; /* Menos peso para mejorar la legibilidad */
+    color: var(--color-primary);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: justify; /* Justifica el texto para un bloque más uniforme */
+    line-height: 1.6; /* Espaciado entre líneas para facilitar la lectura */
+    white-space: pre-wrap; /* Respeta los saltos de línea y espacios */
+  }
+  
+  .centerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100vh;
+  }

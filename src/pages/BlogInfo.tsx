@@ -1,38 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../hooks/conection";
+import { useParams } from "react-router-dom";
+import { getBlogById } from "../hooks/conection";
+import { BlogId, Blogs } from "../interfaces/blogsInterfaces";
 
-export interface Post {
-    id: number;
-    name_device: string;
-    relase_date: string;
-    description: string;
-    image_url: string;
+function BlogInfo(){
+    const { id } = useParams<{id: string}>();
+    const [post, setPost] = useState<BlogId | null>(null);
 
-}
+    useEffect(() => {
+      const fetchGetPostsById = async () =>{
+        try{
+            const postIdData = await getBlogById(id);
+            setPost(postIdData.data);
+            console.log("información del blog por id: " + postIdData.data)
+        } catch(err){
+            console.error('Error al obtener el post:', err);
+        }
+    }
+    fetchGetPostsById();
+    },[]);    
+    const paragraphs = post ? divideTextInParagraphs(post) : null; paragraphs
 
-function Home(){
 
-    const [posts, setPosts] = useState<Post[]>([]);
-
-    useEffect(() =>{
-        const fetchPosts = async () =>{
-            try{
-                const postsData = await getPosts();
-                setPosts(postsData.data);
-            }catch(error){
-                console.error('Error al obtener los posts:', error);
-            }
-        };
-        fetchPosts();
-    })
-
+    
+    
     return (
         <div className="HomePage">
-           <div>
-            <h1></h1>
-           </div>
+            { post ? (
+                <div>
+
+                <div className="EncabezadoBlog">
+                    <h1 className="TextEncabezadoBlog">{post.name_device}</h1>
+                    <p style={{fontSize:'18px'}}>{new Date(post.relase_date).toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}</p>
+                </div>
+                <div className="CuerpoBlog">
+                    <img src={post.image_url} className="imageBlog" alt={post.name_device} />
+                    {paragraphs?.map((paragraph, index) => (
+                        <p key={index} className="TextCuerpoBlog">{paragraph}</p>
+                    ))}
+                </div>
+                </div>
+            ):(
+                <div className="centerDiv">
+                    <span className="loader"></span>
+                </div>
+            )}
         </div>
     )
 }
 
-export default Home;
+export default BlogInfo;

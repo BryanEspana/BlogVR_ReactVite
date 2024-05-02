@@ -23,3 +23,15 @@ export const createPost = async (postData) => {
     throw error;
   }
 };
+
+
+//Función para traer blog por id
+export const getBlogById = async (id) => {
+  try{
+    const response = await axios.get(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error){
+    console.error('Error al obtener el post:', error);
+    throw error;
+  }
+}
