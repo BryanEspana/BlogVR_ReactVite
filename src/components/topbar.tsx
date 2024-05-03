@@ -6,21 +6,32 @@ function TopBar(){
         console.log("Go Home");
         window.location.href = '/';
     }
-    const goAboutMe = (event) => {
-        console.log("Go Home");
-        window.location.href = '/';
-    }
+
     const goLogin = (event) => {
         console.log("Go Home");
         window.location.href = '/login';
     }
+    const logout = (event) =>{
+        localStorage.removeItem('user');
+        localStorage.removeItem('isActive');
+        window.location.href = '/';
+    }
+    const createBlog = (event) =>{
+        window.location.href = '/admin/createBlog';
+
+    }
+
+    const isAdmin = localStorage.getItem('isActive')  === 'true';
+
     return (
         <div className="Topbar">
             <img src="src/assets/logo.png" className="logo" />
             <div>
                 <button className="BtnToopbar" onClick={goHome}>Home</button>
-                <button className="BtnToopbar" onClick={goAboutMe}>About Me</button>
-                <button className="BtnToopbar" onClick={goLogin}>Login</button>
+                {isAdmin && (<button className="BtnToopbar" onClick={createBlog}>Crear blog</button>)}
+                {!isAdmin && (<button className="BtnToopbar" onClick={goLogin}>Login</button>)}
+                {isAdmin && (<button className="BtnToopbar" onClick={logout}>Cerrar sesión</button>)}
+
             </div>
         </div>
     )

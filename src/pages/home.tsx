@@ -45,7 +45,7 @@ function Home(){
             <div className="Blogs">
                 {posts.map(post => (
                     <div key={post.id} className="CardsBlog" onClick={async () => await goToBlogById(post.id)}>
-                        <img src={post.image_url} alt={post.name_device} />
+                        <img src={post.image_url} alt={post.name_device} className="imgDiv" />
                         <h2>{post.name_device}</h2>
                         <p className="Fecha">{new Date(post.relase_date).toLocaleDateString()} | Realidad Virtual, Realidad Virtual Social</p>
                         <p className="multiline-truncate">{post.description}</p>

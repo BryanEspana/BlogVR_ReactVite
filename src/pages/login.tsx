@@ -13,8 +13,10 @@ function Login() {
     const usernameInput = event.currentTarget.username.value;
     const passwordInput = event.currentTarget.password.value;
 
-    if (usernameInput === 'bryanespana' && passwordInput === '12345') {
-      window.location.href = '/home';
+    if (usernameInput === 'admin' && passwordInput === '12345') {
+      window.location.href = '/';
+      localStorage.setItem('user', usernameInput);
+      localStorage.setItem('isActive', 'true');
     } else {
       setAlertText('Usuario o contraseña incorrectos');
       setAlertSeverity('error');

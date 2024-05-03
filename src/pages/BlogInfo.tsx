@@ -19,7 +19,6 @@ function BlogInfo(){
     }
     fetchGetPostsById();
     },[]);    
-    const paragraphs = post ? divideTextInParagraphs(post) : null; paragraphs
 
 
     
@@ -39,9 +38,7 @@ function BlogInfo(){
                 </div>
                 <div className="CuerpoBlog">
                     <img src={post.image_url} className="imageBlog" alt={post.name_device} />
-                    {paragraphs?.map((paragraph, index) => (
-                        <p key={index} className="TextCuerpoBlog">{paragraph}</p>
-                    ))}
+                    <p className="descriptionBlog">{post.description}</p>
                 </div>
                 </div>
             ):(

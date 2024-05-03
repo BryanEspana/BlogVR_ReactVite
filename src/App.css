@@ -135,10 +135,15 @@ h1{
   margin: 0;
   padding: 0;
 }
+.imgDiv{
+  width: 100%; 
+  background-size: cover;
+  height: 250px;
+}
 .TextImg{
   position: absolute;
   top: 30%;
-  left: 30%;
+  left: 20%;
   transform: translate(-50%, -50%);
   font-family: monospace;
   color: white;
