@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../hooks/conection";
+import { deleteBlog, getPosts } from "../hooks/conection";
 import { useNavigate } from "react-router-dom";
 import Tooltip from '@mui/material/Tooltip';
+import Swal from 'sweetalert2'
 
 export interface Post {
     id: number;
@@ -42,7 +43,33 @@ function Home(){
     const goToEditPost = async (id: number) => {
         
     }
-    const deletePost = async (id: number) => {}
+    const deletePost = async (id: number) => {
+        try {
+            const response = await Swal.fire({
+                title: '¿Estás seguro de eliminar este post?',
+                showCancelButton: true,
+                confirmButtonText: `Eliminar`,
+                cancelButtonText: `Cancelar`,
+            });
+            if (response.isConfirmed) {
+                console.log("id: " + id);
+                await deleteBlog(id);
+                
+                Swal.fire({
+                    title: 'Post eliminado con éxito',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                });
+                window.location.href = '/';
+            }
+        } catch (error) {
+            Swal.fire({
+                title: 'Error al eliminar el post',
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+            });
+        }
+    }
 
     return (
         <div className="HomePage">
@@ -50,7 +77,7 @@ function Home(){
             <h1 className="TextImg animate__animated animate__backInDown">EXPLORANDO LA REALIDAD VIRTUAL</h1>
             <div className="Blogs">
                 {posts.map(post => (
-                    <div key={post.id} className="CardsBlog" onClick={async () => await goToBlogById(post.id)}>
+                    <div key={post.id} className="CardsBlog">
                         {
                             (isAdmin) && (
                                 <div className="AdminButtons">
@@ -68,8 +95,8 @@ function Home(){
                                 </div>
                             )
                         }
-                        <img src={post.image_url} alt={post.name_device} className="imgDiv" />
-                        <h2>{post.name_device}</h2>
+                        <img src={post.image_url} alt={post.name_device} className="imgDiv"  onClick={async () => await goToBlogById(post.id)} />
+                        <h2  onClick={async () => await goToBlogById(post.id)}>{post.name_device}</h2>
                         <p className="Fecha">{new Date(post.relase_date).toLocaleDateString()} | Realidad Virtual, Realidad Virtual Social</p>
                         <p className="multiline-truncate">{post.description}</p>
                     </div>

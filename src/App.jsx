@@ -8,7 +8,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import BlogInfo from './pages/BlogInfo';
-import CreateBlog from './pages/createBlog';
+import CreateBlog from './pages/admin/createBlog';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Layout />}>
-        <Route  index element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/blog/:id" element={<BlogInfo/>} />
         <Route path="/admin/createBlog" element={<CreateBlog/>} />
       </Route>

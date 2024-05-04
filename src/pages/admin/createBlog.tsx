@@ -2,8 +2,8 @@ import { TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 import Button from '@mui/material/Button';
-import { createPost } from '../hooks/conection';
-import SimpleAlert from '../components/alertDialog';
+import { createPost } from '../../hooks/conection';
+import SimpleAlert from '../../components/alertDialog';
 
     function CreateBlog(){
         const [showAlert, setShowAlert] = useState<boolean>(false);

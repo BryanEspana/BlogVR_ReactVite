@@ -35,3 +35,14 @@ export const getBlogById = async (id) => {
     throw error;
   }
 }
+
+//Función para eliminar un blog por id
+export const deleteBlog = async (id) => {
+  try{
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error){
+    console.error('Error al eliminar el post:', error);
+    throw error;
+  }
+}
