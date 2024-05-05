@@ -1,4 +1,5 @@
 import React from "react";
+import logoImage from '../assets/logo.png';
 
 function TopBar(){
 
@@ -25,7 +26,7 @@ function TopBar(){
 
     return (
         <div className="Topbar">
-            <img src="src/assets/logo.png" className="logo" />
+            <img src={logoImage} className="logo" />
             <div>
                 <button className="BtnToopbar" onClick={goHome}>Home</button>
                 {isAdmin && (<button className="BtnToopbar" onClick={createBlog}>Crear blog</button>)}

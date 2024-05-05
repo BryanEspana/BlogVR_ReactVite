@@ -3,6 +3,7 @@ import { deleteBlog, getPosts } from "../hooks/conection";
 import { useNavigate } from "react-router-dom";
 import Tooltip from '@mui/material/Tooltip';
 import Swal from 'sweetalert2'
+import fondoImage from '../assets/fondo.png';
 
 export interface Post {
     id: number;
@@ -79,7 +80,7 @@ function Home(){
 
     return (
         <div className="HomePage">
-            <img src="src/assets/fondo.png" className="imgHome"/>
+            <img src={fondoImage} className="imgHome"/>
             <h1 className="TextImg animate__animated animate__backInDown">EXPLORANDO LA REALIDAD VIRTUAL</h1>
             <div className="Blogs">
                 
