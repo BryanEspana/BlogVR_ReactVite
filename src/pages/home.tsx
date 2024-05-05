@@ -18,6 +18,7 @@ function Home(){
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() =>{
+        
         const fetchPosts = async () =>{
             try{
                 const postsData = await getPosts();
@@ -81,6 +82,7 @@ function Home(){
             <img src="src/assets/fondo.png" className="imgHome"/>
             <h1 className="TextImg animate__animated animate__backInDown">EXPLORANDO LA REALIDAD VIRTUAL</h1>
             <div className="Blogs">
+                
                 {posts.map(post => (
                     <div key={post.id} className="CardsBlog">
                         {
