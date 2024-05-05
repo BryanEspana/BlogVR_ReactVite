@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/posts';  // Cambia esto por la URL real de tu backend
+const API_URL = 'https://blogvr-6fd24dd53fe2.herokuapp.com/posts';  // Cambia esto por la URL real de tu backend
 
 // Función para obtener posts
 export const getPosts = async () => {
