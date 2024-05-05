@@ -6,6 +6,7 @@ import { BlogId, Blogs } from "../interfaces/blogsInterfaces";
 function BlogInfo(){
     const { id } = useParams<{id: string}>();
     const [post, setPost] = useState<BlogId | null>(null);
+    const [paragraphs, setParagraphs] = useState<any>([]);
 
     useEffect(() => {
       const fetchGetPostsById = async () =>{
@@ -19,6 +20,8 @@ function BlogInfo(){
     }
     fetchGetPostsById();
     },[]);    
+
+
 
 
     
@@ -39,6 +42,7 @@ function BlogInfo(){
                 <div className="CuerpoBlog">
                     <img src={post.image_url} className="imageBlog" alt={post.name_device} />
                     <p className="descriptionBlog">{post.description}</p>
+                    <p className="descriptionBlog">{post.Information}</p>
                 </div>
                 </div>
             ):(

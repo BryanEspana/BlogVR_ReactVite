@@ -46,3 +46,14 @@ export const deleteBlog = async (id) => {
     throw error;
   }
 }
+
+//Función para editar un blog por id
+export const editBlog = async (id, postData) => {
+  try{
+    const response = await axios.put(`${API_URL}/${id}`, postData);
+    return response.data;
+  } catch (error){
+    console.error('Error al editar el post:', error);
+    throw error;
+  }
+}

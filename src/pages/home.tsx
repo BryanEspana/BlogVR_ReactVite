@@ -41,7 +41,12 @@ function Home(){
 
     const isAdmin = localStorage.getItem('isActive') === 'true';
     const goToEditPost = async (id: number) => {
-        
+        try {
+            console.log("id: " + id);
+            navigate(`/admin/editBlog/${id}`);
+        } catch (error) {
+            console.error('Error al obtener el post:', error);
+        }
     }
     const deletePost = async (id: number) => {
         try {
