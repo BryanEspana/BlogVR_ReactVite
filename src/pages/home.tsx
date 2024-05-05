@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Tooltip from '@mui/material/Tooltip';
 import Swal from 'sweetalert2'
 import fondoImage from '../assets/fondo.png';
-
+import btnEdit from '../assets/icons/edit.svg';
+import btnDelete from '../assets/icons/trash.svg'
 export interface Post {
     id: number;
     name_device: string;
@@ -91,13 +92,13 @@ function Home(){
                                 <div className="AdminButtons">
                                     <Tooltip title="Editar">
                                     <button className="btn btn-edit" onClick={async () => await goToEditPost(post.id)}>
-                                    <img src="src/assets/icons/edit.svg" className="ico"/>
+                                    <img src={btnEdit} className="ico"/>
                                     </button>
                                     </Tooltip>
                                     
                                     <Tooltip title="Eliminar">
                                     <button className="btn btn-edit" onClick={async () => await deletePost(post.id)}>
-                                    <img src="src/assets/icons/trash.svg" className="ico"/>
+                                    <img src={btnDelete} className="ico"/>
                                     </button>
                                     </Tooltip>
                                 </div>
