@@ -51,14 +51,11 @@ Para ejecutar este proyecto, necesitarás tener instalado Node.js y npm. Sigue l
 - Sigue las instrucciones en pantalla para crear o editar posts.
 - Utiliza el formulario provisto para ingresar el título, contenido y detalles del post.
 
-## Créditos
+## Dirección del repositorio:
 
-Este proyecto fue desarrollado con base en las especificaciones proporcionadas por el cliente y las contribuciones técnicas durante las sesiones de desarrollo interactivo.
-
-## Contacto
-
-Para más información o soporte, por favor contacta al equipo de desarrollo a través de [inserta tu correo electrónico].
-
----
-
-Este README proporciona una visión general básica del proyecto y puede ser expandido para incluir más detalles específicos como configuraciones de base de datos, detalles adicionales sobre la API, y guías para contribuyentes si el proyecto está destinado a ser de código abierto.
+- Backend: https://github.com/BryanEspana/BlogVR-JS 
+- Frontend: https://github.com/BryanEspana/BlogVR_ReactVite
+- Link Producción: https://blog-vr-react-vite.vercel.app
+- USUARIO ADMINISTRADOR:
+    name: admin
+    contraseña: 12345
